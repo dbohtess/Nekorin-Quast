@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0814" />
+  <title>Nekorin Quest</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">NQ</div>
+        <div>
+          <h1>Nekorin Quest</h1>
+          <span>Level up real life</span>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span>Dashboard</button>
+        <button class="nav-item" data-view="quests"><span>✓</span>Quests</button>
+        <button class="nav-item" data-view="habits"><span>🔥</span>Habits</button>
+        <button class="nav-item" data-view="focus"><span>◷</span>Focus</button>
+        <button class="nav-item" data-view="projects"><span>◇</span>Projects</button>
+        <button class="nav-item" data-view="calendar"><span>□</span>Calendar</button>
+        <button class="nav-item" data-view="stats"><span>↗</span>Statistics</button>
+      </nav>
+
+      <div class="sidebar-card">
+        <span class="tiny-label">CURRENT STREAK</span>
+        <strong><span id="sidebarStreak">0</span> days</strong>
+        <p>Small quests. Real progress.</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="todayLabel">TODAY</p>
+          <h2 id="pageTitle">Welcome back, Sultan</h2>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" id="soundButton" title="Electronic whip sound">⚡</button>
+          <button class="profile-pill"><span class="profile-dot"></span> Sultan</button>
+        </div>
+      </header>
+
+      <section class="view active" id="dashboardView">
+        <div class="hero-grid">
+          <article class="card level-card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">PLAYER STATUS</p>
+                <h3>Level <span id="levelNumber">1</span></h3>
+              </div>
+              <div class="rank-badge">RANK E</div>
+            </div>
+            <div class="xp-line">
+              <span><b id="currentXp">0</b> XP</span>
+              <span><b id="nextXp">100</b> XP</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" id="xpFill"></div></div>
+            <p class="muted">Complete quests and focus sessions to gain XP.</p>
+          </article>
+
+          <article class="card focus-mini-card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">FOCUS MODE</p>
+                <h3 id="miniTimer">25:00</h3>
+              </div>
+              <div class="pulse-ring"></div>
+            </div>
+            <button class="primary-btn" data-open-view="focus">Start Focus Session</button>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="card quests-card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">DAILY MISSIONS</p>
+                <h3>Today's Quests</h3>
+              </div>
+              <button class="text-btn" data-open-view="quests">View all</button>
+            </div>
+            <div id="dashboardQuestList" class="quest-list"></div>
+          </article>
+
+          <article class="card progress-card">
+            <div class="card-head">
+              <div>
+                <p class="eyebrow">TODAY'S PROGRESS</p>
+                <h3>Quest Completion</h3>
+              </div>
+              <strong id="completionPercent">0%</strong>
+            </div>
+            <div class="ring-wrap">
+              <div class="progress-ring" id="progressRing"><span id="ringPercent">0%</span></div>
+            </div>
+            <div class="mini-stats">
+              <div><b id="doneCount">0</b><span>Done</span></div>
+              <div><b id="openCount">0</b><span>Open</span></div>
+              <div><b id="streakCount">0</b><span>Streak</span></div>
+            </div>
+          </article>
+        </div>
+
+        <article class="card weekly-card">
+          <div class="card-head">
+            <div>
+              <p class="eyebrow">WEEKLY ACTIVITY</p>
+              <h3>Momentum</h3>
+            </div>
+            <span class="muted">XP gained this week</span>
+          </div>
+          <div class="bars" id="weeklyBars"></div>
+        </article>
+      </section>
+
+      <section class="view" id="questsView">
+        <article class="card section-card">
+          <div class="card-head wrap-head">
+            <div><p class="eyebrow">QUEST LOG</p><h3>Daily Quests</h3></div>
+            <form id="questForm" class="inline-form">
+              <input id="questInput" maxlength="60" placeholder="Add a new quest..." required />
+              <select id="questXp"><option value="10">10 XP</option><option value="20">20 XP</option><option value="30">30 XP</option><option value="50">50 XP</option></select>
+              <button class="primary-btn" type="submit">Add Quest</button>
+            </form>
+          </div>
+          <div id="fullQuestList" class="quest-list roomy"></div>
+        </article>
+      </section>
+
+      <section class="view" id="habitsView">
+        <article class="card section-card">
+          <div class="card-head wrap-head">
+            <div><p class="eyebrow">ROUTINES</p><h3>Habit Streaks</h3></div>
+            <form id="habitForm" class="inline-form">
+              <input id="habitInput" maxlength="40" placeholder="New habit..." required />
+              <button class="primary-btn" type="submit">Add Habit</button>
+            </form>
+          </div>
+          <div id="habitGrid" class="habit-grid"></div>
+        </article>
+      </section>
+
+      <section class="view" id="focusView">
+        <article class="card timer-card">
+          <p class="eyebrow">FOCUS CHAMBER</p>
+          <h3>One mission at a time.</h3>
+          <div class="big-timer" id="bigTimer">25:00</div>
+          <div class="timer-presets">
+            <button data-minutes="15">15 min</button>
+            <button class="active" data-minutes="25">25 min</button>
+            <button data-minutes="45">45 min</button>
+            <button data-minutes="60">60 min</button>
+          </div>
+          <div class="timer-actions">
+            <button class="primary-btn large" id="startTimer">Start</button>
+            <button class="secondary-btn large" id="resetTimer">Reset</button>
+          </div>
+          <p class="muted">Finishing a session rewards 25 XP.</p>
+        </article>
+      </section>
+
+      <section class="view" id="projectsView">
+        <article class="card section-card">
+          <div class="card-head wrap-head">
+            <div><p class="eyebrow">LONG-TERM MISSIONS</p><h3>Projects</h3></div>
+            <form id="projectForm" class="inline-form">
+              <input id="projectInput" maxlength="50" placeholder="Project name..." required />
+              <button class="primary-btn" type="submit">Add Project</button>
+            </form>
+          </div>
+          <div id="projectGrid" class="project-grid"></div>
+        </article>
+      </section>
+
+      <section class="view" id="calendarView">
+        <article class="card section-card">
+          <div class="card-head"><div><p class="eyebrow">SCHEDULE</p><h3>Calendar</h3></div><input type="month" id="monthPicker" /></div>
+          <div id="calendarGrid" class="calendar-grid"></div>
+        </article>
+      </section>
+
+      <section class="view" id="statsView">
+        <div class="stats-grid">
+          <article class="card stat-card"><span>Total XP</span><strong id="statXp">0</strong></article>
+          <article class="card stat-card"><span>Completed Quests</span><strong id="statCompleted">0</strong></article>
+          <article class="card stat-card"><span>Focus Sessions</span><strong id="statFocus">0</strong></article>
+          <article class="card stat-card"><span>Best Streak</span><strong id="statStreak">0</strong></article>
+        </div>
+        <article class="card section-card"><p class="eyebrow">PROGRESS REPORT</p><h3>Your V1 statistics are saved on this device.</h3><p class="muted spacious">Nekorin Quest uses local storage in V1, so every quest, habit, project and XP point remains available when you return on the same browser.</p></article>
+      </section>
+    </main>
+  </div>
+
+  <nav class="mobile-nav">
+    <button class="active" data-view="dashboard">⌂<span>Home</span></button>
+    <button data-view="quests">✓<span>Quests</span></button>
+    <button data-view="focus">◷<span>Focus</span></button>
+    <button data-view="projects">◇<span>Projects</span></button>
+    <button data-view="stats">↗<span>Stats</span></button>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
