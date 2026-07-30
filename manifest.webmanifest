@@ -1,0 +1,21 @@
+{
+  "name": "نيكورين كويست",
+  "short_name": "نيكورين",
+  "description": "نظام نيكورين كويست للمهام والعادات والتركيز.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#09070f",
+  "theme_color": "#0b0814",
+  "icons": [
+    {
+      "src": "assets/nekorin-avatar.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
