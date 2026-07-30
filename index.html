@@ -18,57 +18,25 @@
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <div class="brand">
-        <img class="brand-avatar" src="assets/nekorin-avatar.svg" alt="نيكورين" />
-        <div><h1>نيكورين كويست</h1><span>طوّر حياتك الحقيقية</span></div>
-      </div>
+      <div class="brand"><img class="brand-avatar" src="assets/nekorin-avatar.svg" alt="نيكورين" /><div><h1>نيكورين كويست</h1><span>طوّر حياتك الحقيقية</span></div></div>
       <nav class="nav-list" aria-label="التنقل الرئيسي">
-        <button class="nav-item active" data-view="dashboard"><span>⌂</span>الرئيسية</button>
-        <button class="nav-item" data-view="quests"><span>✓</span>المهام</button>
-        <button class="nav-item" data-view="habits"><span>🔥</span>العادات</button>
-        <button class="nav-item" data-view="focus"><span>◷</span>التركيز</button>
-        <button class="nav-item" data-view="projects"><span>◇</span>المشاريع</button>
-        <button class="nav-item" data-view="calendar"><span>□</span>التقويم</button>
-        <button class="nav-item" data-view="stats"><span>↗</span>الإحصائيات</button>
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span>الرئيسية</button><button class="nav-item" data-view="quests"><span>✓</span>المهام</button><button class="nav-item" data-view="habits"><span>🔥</span>العادات</button><button class="nav-item" data-view="focus"><span>◷</span>التركيز</button><button class="nav-item" data-view="projects"><span>◇</span>المشاريع</button><button class="nav-item" data-view="calendar"><span>□</span>التقويم</button><button class="nav-item" data-view="stats"><span>↗</span>الإحصائيات</button>
       </nav>
       <div class="sidebar-card"><span class="tiny-label">سلسلة الإنجاز الحالية</span><strong><span id="sidebarStreak">0</span> يوم</strong><p>مهام صغيرة، وتقدم حقيقي.</p></div>
     </aside>
-
     <main class="main-content">
-      <header class="topbar">
-        <div><p class="eyebrow" id="todayLabel">اليوم</p><h2 id="pageTitle">مرحباً بعودتك يا سلطان</h2></div>
-        <div class="top-actions"><button class="icon-btn" id="soundButton" title="الصوت الإلكتروني">⚡</button><button class="profile-pill"><span class="profile-dot"></span> سلطان</button></div>
-      </header>
-
+      <header class="topbar"><div><p class="eyebrow" id="todayLabel">اليوم</p><h2 id="pageTitle">مرحباً بعودتك يا سلطان</h2></div><div class="top-actions"><button class="icon-btn" id="soundButton" title="الصوت الإلكتروني">⚡</button><button class="profile-pill"><span class="profile-dot"></span> سلطان</button></div></header>
       <section class="view active" id="dashboardView">
         <div class="hero-grid">
-          <article class="card level-card">
-            <div class="card-head"><div><p class="eyebrow">حالة اللاعب</p><h3>المستوى <span id="levelNumber">1</span></h3></div><div class="rank-badge">الرتبة E</div></div>
-            <div class="xp-line"><span><b id="currentXp">0</b> XP</span><span><b id="nextXp">100</b> XP</span></div>
-            <div class="progress-track"><div class="progress-fill" id="xpFill"></div></div>
-            <p class="muted">أكمل المهام وجلسات التركيز لتحصل على XP.</p>
-          </article>
-          <article class="card focus-mini-card">
-            <div class="card-head"><div><p class="eyebrow">وضع التركيز</p><h3 id="miniTimer">25:00</h3></div><div class="pulse-ring"></div></div>
-            <button class="primary-btn" data-open-view="focus">ابدأ جلسة تركيز</button>
-          </article>
+          <article class="card level-card"><div class="card-head"><div><p class="eyebrow">حالة اللاعب</p><h3>المستوى <span id="levelNumber">1</span></h3></div><div class="rank-badge">الرتبة E</div></div><div class="xp-line"><span><b id="currentXp">0</b> XP</span><span><b id="nextXp">100</b> XP</span></div><div class="progress-track"><div class="progress-fill" id="xpFill"></div></div><p class="muted">أكمل المهام وجلسات التركيز لتحصل على XP.</p></article>
+          <article class="card focus-mini-card"><div class="card-head"><div><p class="eyebrow">وضع التركيز</p><h3 id="miniTimer">25:00</h3></div><div class="pulse-ring"></div></div><button class="primary-btn" data-open-view="focus">ابدأ جلسة تركيز</button></article>
         </div>
-
         <div class="dashboard-grid">
-          <article class="card quests-card">
-            <div class="card-head"><div><p class="eyebrow">المهام اليومية</p><h3>مهام اليوم</h3></div><button class="text-btn" data-open-view="quests">عرض الكل</button></div>
-            <div id="dashboardQuestList" class="quest-list"></div>
-          </article>
-          <article class="card progress-card">
-            <div class="card-head"><div><p class="eyebrow">تقدم اليوم</p><h3>إنجاز المهام</h3></div><strong id="completionPercent">0%</strong></div>
-            <div class="ring-wrap"><div class="progress-ring" id="progressRing"><span id="ringPercent">0%</span></div></div>
-            <div class="mini-stats"><div><b id="doneCount">0</b><span>مكتملة</span></div><div><b id="openCount">0</b><span>متبقية</span></div><div><b id="streakCount">0</b><span>السلسلة</span></div></div>
-          </article>
+          <article class="card quests-card"><div class="card-head"><div><p class="eyebrow">المهام اليومية</p><h3>مهام اليوم</h3></div><button class="text-btn" data-open-view="quests">عرض الكل</button></div><div id="dashboardQuestList" class="quest-list"></div></article>
+          <article class="card progress-card"><div class="card-head"><div><p class="eyebrow">تقدم اليوم</p><h3>إنجاز المهام</h3></div><strong id="completionPercent">0%</strong></div><div class="ring-wrap"><div class="progress-ring" id="progressRing"><span id="ringPercent">0%</span></div></div><div class="mini-stats"><div><b id="doneCount">0</b><span>مكتملة</span></div><div><b id="openCount">0</b><span>متبقية</span></div><div><b id="streakCount">0</b><span>السلسلة</span></div></div></article>
         </div>
-
         <article class="card weekly-card"><div class="card-head"><div><p class="eyebrow">نشاط الأسبوع</p><h3>الاستمرارية</h3></div><span class="muted">XP المكتسب هذا الأسبوع</span></div><div class="bars" id="weeklyBars"></div></article>
       </section>
-
       <section class="view" id="questsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">سجل المهام</p><h3>المهام اليومية</h3></div><form id="questForm" class="inline-form"><input id="questInput" maxlength="60" placeholder="أضف مهمة جديدة..." required /><select id="questXp"><option value="10">10 XP</option><option value="20">20 XP</option><option value="30">30 XP</option><option value="50">50 XP</option></select><button class="primary-btn" type="submit">إضافة مهمة</button></form></div><div id="fullQuestList" class="quest-list roomy"></div></article></section>
       <section class="view" id="habitsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">الروتين</p><h3>سلسلة العادات</h3></div><form id="habitForm" class="inline-form"><input id="habitInput" maxlength="40" placeholder="عادة جديدة..." required /><button class="primary-btn" type="submit">إضافة عادة</button></form></div><div id="habitGrid" class="habit-grid"></div></article></section>
       <section class="view" id="focusView"><article class="card timer-card"><p class="eyebrow">غرفة التركيز</p><h3>مهمة واحدة في كل مرة.</h3><div class="big-timer" id="bigTimer">25:00</div><div class="timer-presets"><button data-minutes="15">15 دقيقة</button><button class="active" data-minutes="25">25 دقيقة</button><button data-minutes="45">45 دقيقة</button><button data-minutes="60">60 دقيقة</button></div><div class="timer-actions"><button class="primary-btn large" id="startTimer">ابدأ</button><button class="secondary-btn large" id="resetTimer">إعادة</button></div><p class="muted">إنهاء الجلسة يمنحك 25 XP.</p></article></section>
@@ -77,9 +45,13 @@
       <section class="view" id="statsView"><div class="stats-grid"><article class="card stat-card"><span>إجمالي XP</span><strong id="statXp">0</strong></article><article class="card stat-card"><span>المهام المكتملة</span><strong id="statCompleted">0</strong></article><article class="card stat-card"><span>جلسات التركيز</span><strong id="statFocus">0</strong></article><article class="card stat-card"><span>أفضل سلسلة</span><strong id="statStreak">0</strong></article></div><article class="card section-card"><p class="eyebrow">تقرير التقدم</p><h3>إحصائيات V1 محفوظة على هذا الجهاز.</h3><p class="muted spacious">يحفظ نيكورين كويست مهامك وعاداتك ومشاريعك ونقاط XP داخل المتصفح في النسخة الأولى.</p></article></section>
     </main>
   </div>
-
   <nav class="mobile-nav" aria-label="التنقل في الهاتف"><button class="active" data-view="dashboard">⌂<span>الرئيسية</span></button><button data-view="quests">✓<span>المهام</span></button><button data-view="focus">◷<span>التركيز</span></button><button data-view="projects">◇<span>المشاريع</span></button><button data-view="stats">↗<span>الإحصائيات</span></button></nav>
   <div class="toast" id="toast"></div>
   <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+    }
+  </script>
 </body>
 </html>
