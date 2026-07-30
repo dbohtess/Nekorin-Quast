@@ -2,9 +2,17 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0814" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="نيكورين كويست" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="description" content="نظام نيكورين كويست لتطوير الحياة والمهام والعادات والتركيز." />
   <title>نيكورين كويست</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/nekorin-avatar.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/nekorin-avatar.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -62,20 +70,15 @@
       </section>
 
       <section class="view" id="questsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">سجل المهام</p><h3>المهام اليومية</h3></div><form id="questForm" class="inline-form"><input id="questInput" maxlength="60" placeholder="أضف مهمة جديدة..." required /><select id="questXp"><option value="10">10 XP</option><option value="20">20 XP</option><option value="30">30 XP</option><option value="50">50 XP</option></select><button class="primary-btn" type="submit">إضافة مهمة</button></form></div><div id="fullQuestList" class="quest-list roomy"></div></article></section>
-
       <section class="view" id="habitsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">الروتين</p><h3>سلسلة العادات</h3></div><form id="habitForm" class="inline-form"><input id="habitInput" maxlength="40" placeholder="عادة جديدة..." required /><button class="primary-btn" type="submit">إضافة عادة</button></form></div><div id="habitGrid" class="habit-grid"></div></article></section>
-
       <section class="view" id="focusView"><article class="card timer-card"><p class="eyebrow">غرفة التركيز</p><h3>مهمة واحدة في كل مرة.</h3><div class="big-timer" id="bigTimer">25:00</div><div class="timer-presets"><button data-minutes="15">15 دقيقة</button><button class="active" data-minutes="25">25 دقيقة</button><button data-minutes="45">45 دقيقة</button><button data-minutes="60">60 دقيقة</button></div><div class="timer-actions"><button class="primary-btn large" id="startTimer">ابدأ</button><button class="secondary-btn large" id="resetTimer">إعادة</button></div><p class="muted">إنهاء الجلسة يمنحك 25 XP.</p></article></section>
-
       <section class="view" id="projectsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">المهام طويلة المدى</p><h3>المشاريع</h3></div><form id="projectForm" class="inline-form"><input id="projectInput" maxlength="50" placeholder="اسم المشروع..." required /><button class="primary-btn" type="submit">إضافة مشروع</button></form></div><div id="projectGrid" class="project-grid"></div></article></section>
-
       <section class="view" id="calendarView"><article class="card section-card"><div class="card-head"><div><p class="eyebrow">الجدول</p><h3>التقويم</h3></div><input type="month" id="monthPicker" /></div><div id="calendarGrid" class="calendar-grid"></div></article></section>
-
       <section class="view" id="statsView"><div class="stats-grid"><article class="card stat-card"><span>إجمالي XP</span><strong id="statXp">0</strong></article><article class="card stat-card"><span>المهام المكتملة</span><strong id="statCompleted">0</strong></article><article class="card stat-card"><span>جلسات التركيز</span><strong id="statFocus">0</strong></article><article class="card stat-card"><span>أفضل سلسلة</span><strong id="statStreak">0</strong></article></div><article class="card section-card"><p class="eyebrow">تقرير التقدم</p><h3>إحصائيات V1 محفوظة على هذا الجهاز.</h3><p class="muted spacious">يحفظ نيكورين كويست مهامك وعاداتك ومشاريعك ونقاط XP داخل المتصفح في النسخة الأولى.</p></article></section>
     </main>
   </div>
 
-  <nav class="mobile-nav"><button class="active" data-view="dashboard">⌂<span>الرئيسية</span></button><button data-view="quests">✓<span>المهام</span></button><button data-view="focus">◷<span>التركيز</span></button><button data-view="projects">◇<span>المشاريع</span></button><button data-view="stats">↗<span>الإحصائيات</span></button></nav>
+  <nav class="mobile-nav" aria-label="التنقل في الهاتف"><button class="active" data-view="dashboard">⌂<span>الرئيسية</span></button><button data-view="quests">✓<span>المهام</span></button><button data-view="focus">◷<span>التركيز</span></button><button data-view="projects">◇<span>المشاريع</span></button><button data-view="stats">↗<span>الإحصائيات</span></button></nav>
   <div class="toast" id="toast"></div>
   <script src="app.js"></script>
 </body>
