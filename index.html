@@ -1,53 +1,110 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0814" />
+  <meta name="theme-color" content="#080510" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="نيكورين كويست" />
+  <meta name="apple-mobile-web-app-title" content="Nekorin Quest" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="description" content="نظام نيكورين كويست لتطوير الحياة والمهام والعادات والتركيز." />
-  <title>نيكورين كويست</title>
+  <meta name="description" content="Nekorin Quest — a private game-style system for quests, focus, habits, projects, and personal growth." />
+  <title>Nekorin Quest</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/nekorin-avatar.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="assets/nekorin-avatar.svg" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <div class="brand"><img class="brand-avatar" src="assets/nekorin-avatar.svg" alt="نيكورين" /><div><h1>نيكورين كويست</h1><span>طوّر حياتك الحقيقية</span></div></div>
-      <nav class="nav-list" aria-label="التنقل الرئيسي">
-        <button class="nav-item active" data-view="dashboard"><span>⌂</span>الرئيسية</button><button class="nav-item" data-view="quests"><span>✓</span>المهام</button><button class="nav-item" data-view="habits"><span>🔥</span>العادات</button><button class="nav-item" data-view="focus"><span>◷</span>التركيز</button><button class="nav-item" data-view="projects"><span>◇</span>المشاريع</button><button class="nav-item" data-view="calendar"><span>□</span>التقويم</button><button class="nav-item" data-view="stats"><span>↗</span>الإحصائيات</button>
+      <div class="brand">
+        <img class="brand-avatar" src="assets/nekorin-avatar.svg" alt="Nekorin" />
+        <div><h1>NEKORIN QUEST</h1><span>PRIVATE SYSTEM</span></div>
+      </div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span>Home</button>
+        <button class="nav-item" data-view="quests"><span>✓</span>Quests</button>
+        <button class="nav-item" data-view="habits"><span>◆</span>Habits</button>
+        <button class="nav-item" data-view="focus"><span>◷</span>Focus</button>
+        <button class="nav-item" data-view="projects"><span>◇</span>Projects</button>
+        <button class="nav-item" data-view="calendar"><span>□</span>Calendar</button>
+        <button class="nav-item" data-view="stats"><span>↗</span>Stats</button>
       </nav>
-      <div class="sidebar-card"><span class="tiny-label">سلسلة الإنجاز الحالية</span><strong><span id="sidebarStreak">0</span> يوم</strong><p>مهام صغيرة، وتقدم حقيقي.</p></div>
+      <div class="sidebar-card"><span class="tiny-label">CURRENT STREAK</span><strong><span id="sidebarStreak">0</span> DAYS</strong><p>Small quests. Real progress.</p></div>
     </aside>
+
     <main class="main-content">
-      <header class="topbar"><div><p class="eyebrow" id="todayLabel">اليوم</p><h2 id="pageTitle">مرحباً بعودتك يا سلطان</h2></div><div class="top-actions"><button class="icon-btn" id="soundButton" title="الصوت الإلكتروني">⚡</button><button class="profile-pill"><span class="profile-dot"></span> سلطان</button></div></header>
+      <header class="topbar">
+        <div><p class="eyebrow" id="todayLabel">TODAY</p><h2 id="pageTitle">Welcome back, Sultan</h2></div>
+        <div class="top-actions"><button class="icon-btn" id="soundButton" title="System sound">⚡</button><button class="profile-pill"><span class="profile-dot"></span> SULTAN</button></div>
+      </header>
+
       <section class="view active" id="dashboardView">
+        <div class="system-banner"><span>SYSTEM ONLINE</span><b>PLAYER PROFILE // SULTAN</b><small>Build your stats through real-world quests.</small></div>
         <div class="hero-grid">
-          <article class="card level-card"><div class="card-head"><div><p class="eyebrow">حالة اللاعب</p><h3>المستوى <span id="levelNumber">1</span></h3></div><div class="rank-badge">الرتبة E</div></div><div class="xp-line"><span><b id="currentXp">0</b> XP</span><span><b id="nextXp">100</b> XP</span></div><div class="progress-track"><div class="progress-fill" id="xpFill"></div></div><p class="muted">أكمل المهام وجلسات التركيز لتحصل على XP.</p></article>
-          <article class="card focus-mini-card"><div class="card-head"><div><p class="eyebrow">وضع التركيز</p><h3 id="miniTimer">25:00</h3></div><div class="pulse-ring"></div></div><button class="primary-btn" data-open-view="focus">ابدأ جلسة تركيز</button></article>
+          <article class="card level-card">
+            <div class="card-head"><div><p class="eyebrow">PLAYER STATUS</p><h3>LEVEL <span id="levelNumber">1</span></h3></div><div class="rank-badge">RANK E</div></div>
+            <div class="xp-line"><span><b id="currentXp">0</b> XP</span><span><b id="nextXp">100</b> XP</span></div>
+            <div class="progress-track"><div class="progress-fill" id="xpFill"></div></div>
+            <p class="muted">Complete quests and focus missions to gain XP.</p>
+          </article>
+          <article class="card focus-mini-card">
+            <div class="card-head"><div><p class="eyebrow">ACTIVE MISSION</p><h3 id="miniTimer">25:00</h3></div><div class="pulse-ring"></div></div>
+            <button class="primary-btn" data-open-view="focus">ENTER FOCUS ROOM</button>
+          </article>
         </div>
         <div class="dashboard-grid">
-          <article class="card quests-card"><div class="card-head"><div><p class="eyebrow">المهام اليومية</p><h3>مهام اليوم</h3></div><button class="text-btn" data-open-view="quests">عرض الكل</button></div><div id="dashboardQuestList" class="quest-list"></div></article>
-          <article class="card progress-card"><div class="card-head"><div><p class="eyebrow">تقدم اليوم</p><h3>إنجاز المهام</h3></div><strong id="completionPercent">0%</strong></div><div class="ring-wrap"><div class="progress-ring" id="progressRing"><span id="ringPercent">0%</span></div></div><div class="mini-stats"><div><b id="doneCount">0</b><span>مكتملة</span></div><div><b id="openCount">0</b><span>متبقية</span></div><div><b id="streakCount">0</b><span>السلسلة</span></div></div></article>
+          <article class="card quests-card"><div class="card-head"><div><p class="eyebrow">DAILY QUESTS</p><h3>Today's Missions</h3></div><button class="text-btn" data-open-view="quests">VIEW ALL</button></div><div id="dashboardQuestList" class="quest-list"></div></article>
+          <article class="card progress-card"><div class="card-head"><div><p class="eyebrow">DAILY PROGRESS</p><h3>Quest Completion</h3></div><strong id="completionPercent">0%</strong></div><div class="ring-wrap"><div class="progress-ring" id="progressRing"><span id="ringPercent">0%</span></div></div><div class="mini-stats"><div><b id="doneCount">0</b><span>CLEARED</span></div><div><b id="openCount">0</b><span>OPEN</span></div><div><b id="streakCount">0</b><span>STREAK</span></div></div></article>
         </div>
-        <article class="card weekly-card"><div class="card-head"><div><p class="eyebrow">نشاط الأسبوع</p><h3>الاستمرارية</h3></div><span class="muted">XP المكتسب هذا الأسبوع</span></div><div class="bars" id="weeklyBars"></div></article>
+        <article class="card weekly-card"><div class="card-head"><div><p class="eyebrow">WEEKLY ACTIVITY</p><h3>Consistency</h3></div><span class="muted">XP earned this week</span></div><div class="bars" id="weeklyBars"></div></article>
       </section>
-      <section class="view" id="questsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">سجل المهام</p><h3>المهام اليومية</h3></div><form id="questForm" class="inline-form"><input id="questInput" maxlength="60" placeholder="أضف مهمة جديدة..." required /><select id="questXp"><option value="10">10 XP</option><option value="20">20 XP</option><option value="30">30 XP</option><option value="50">50 XP</option></select><button class="primary-btn" type="submit">إضافة مهمة</button></form></div><div id="fullQuestList" class="quest-list roomy"></div></article></section>
-      <section class="view" id="habitsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">الروتين</p><h3>سلسلة العادات</h3></div><form id="habitForm" class="inline-form"><input id="habitInput" maxlength="40" placeholder="عادة جديدة..." required /><button class="primary-btn" type="submit">إضافة عادة</button></form></div><div id="habitGrid" class="habit-grid"></div></article></section>
-      <section class="view" id="focusView"><article class="card timer-card"><p class="eyebrow">غرفة التركيز</p><h3>مهمة واحدة في كل مرة.</h3><div class="big-timer" id="bigTimer">25:00</div><div class="timer-presets"><button data-minutes="15">15 دقيقة</button><button class="active" data-minutes="25">25 دقيقة</button><button data-minutes="45">45 دقيقة</button><button data-minutes="60">60 دقيقة</button></div><div class="timer-actions"><button class="primary-btn large" id="startTimer">ابدأ</button><button class="secondary-btn large" id="resetTimer">إعادة</button></div><p class="muted">إنهاء الجلسة يمنحك 25 XP.</p></article></section>
-      <section class="view" id="projectsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">المهام طويلة المدى</p><h3>المشاريع</h3></div><form id="projectForm" class="inline-form"><input id="projectInput" maxlength="50" placeholder="اسم المشروع..." required /><button class="primary-btn" type="submit">إضافة مشروع</button></form></div><div id="projectGrid" class="project-grid"></div></article></section>
-      <section class="view" id="calendarView"><article class="card section-card"><div class="card-head"><div><p class="eyebrow">الجدول</p><h3>التقويم</h3></div><input type="month" id="monthPicker" /></div><div id="calendarGrid" class="calendar-grid"></div></article></section>
-      <section class="view" id="statsView"><div class="stats-grid"><article class="card stat-card"><span>إجمالي XP</span><strong id="statXp">0</strong></article><article class="card stat-card"><span>المهام المكتملة</span><strong id="statCompleted">0</strong></article><article class="card stat-card"><span>جلسات التركيز</span><strong id="statFocus">0</strong></article><article class="card stat-card"><span>أفضل سلسلة</span><strong id="statStreak">0</strong></article></div><article class="card section-card"><p class="eyebrow">تقرير التقدم</p><h3>إحصائيات V1 محفوظة على هذا الجهاز.</h3><p class="muted spacious">يحفظ نيكورين كويست مهامك وعاداتك ومشاريعك ونقاط XP داخل المتصفح في النسخة الأولى.</p></article></section>
+
+      <section class="view" id="questsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">QUEST LOG</p><h3>Daily Quests</h3></div><form id="questForm" class="inline-form"><input id="questInput" maxlength="60" placeholder="Add a new quest..." required /><select id="questXp"><option value="10">10 XP</option><option value="20">20 XP</option><option value="30">30 XP</option><option value="50">50 XP</option></select><button class="primary-btn" type="submit">ADD QUEST</button></form></div><div id="fullQuestList" class="quest-list roomy"></div></article></section>
+
+      <section class="view" id="habitsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">ROUTINE GRID</p><h3>Habit Chain</h3></div><form id="habitForm" class="inline-form"><input id="habitInput" maxlength="40" placeholder="New habit..." required /><button class="primary-btn" type="submit">ADD HABIT</button></form></div><div id="habitGrid" class="habit-grid"></div></article></section>
+
+      <section class="view" id="focusView">
+        <article class="card timer-card" id="timerCard">
+          <div class="timer-header"><p class="eyebrow">FOCUS ROOM // ACTIVE QUEST</p><span id="focusReward" class="reward-chip">REWARD +25 XP</span></div>
+          <h3>One mission. Zero distractions.</h3>
+          <div class="timer-core">
+            <div class="timer-orbit orbit-one"></div><div class="timer-orbit orbit-two"></div>
+            <div class="timer-runes">◆ ◇ ◆ ◇ ◆ ◇</div>
+            <div class="big-timer" id="bigTimer">25:00</div>
+            <span class="timer-status" id="timerStatus">READY</span>
+          </div>
+          <div class="timer-presets"><button data-minutes="15">15 MIN</button><button class="active" data-minutes="25">25 MIN</button><button data-minutes="45">45 MIN</button><button data-minutes="60">60 MIN</button></div>
+          <div class="timer-actions"><button class="primary-btn large" id="startTimer">START MISSION</button><button class="secondary-btn large" id="resetTimer">RESET</button></div>
+          <p class="muted" id="focusHint">Complete the full mission to claim 25 XP.</p>
+        </article>
+      </section>
+
+      <section class="view" id="projectsView"><article class="card section-card"><div class="card-head wrap-head"><div><p class="eyebrow">LONG-TERM QUESTS</p><h3>Projects</h3></div><form id="projectForm" class="inline-form"><input id="projectInput" maxlength="50" placeholder="Project name..." required /><button class="primary-btn" type="submit">ADD PROJECT</button></form></div><div id="projectGrid" class="project-grid"></div></article></section>
+
+      <section class="view" id="calendarView"><article class="card section-card"><div class="card-head"><div><p class="eyebrow">MISSION CALENDAR</p><h3>Calendar</h3></div><input type="month" id="monthPicker" /></div><div id="calendarGrid" class="calendar-grid"></div></article></section>
+
+      <section class="view" id="statsView"><div class="stats-grid"><article class="card stat-card"><span>TOTAL XP</span><strong id="statXp">0</strong></article><article class="card stat-card"><span>QUESTS CLEARED</span><strong id="statCompleted">0</strong></article><article class="card stat-card"><span>FOCUS MISSIONS</span><strong id="statFocus">0</strong></article><article class="card stat-card"><span>BEST STREAK</span><strong id="statStreak">0</strong></article></div><article class="card section-card"><p class="eyebrow">PLAYER REPORT</p><h3>Your progress is saved on this device.</h3><p class="muted spacious">Nekorin Quest stores your quests, habits, projects, XP, and focus history locally in this version.</p></article></section>
     </main>
   </div>
-  <nav class="mobile-nav" aria-label="التنقل في الهاتف"><button class="active" data-view="dashboard">⌂<span>الرئيسية</span></button><button data-view="quests">✓<span>المهام</span></button><button data-view="focus">◷<span>التركيز</span></button><button data-view="projects">◇<span>المشاريع</span></button><button data-view="stats">↗<span>الإحصائيات</span></button></nav>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-view="dashboard">⌂<span>HOME</span></button><button data-view="quests">✓<span>QUESTS</span></button><button data-view="focus">◷<span>FOCUS</span></button><button data-view="projects">◇<span>PROJECTS</span></button><button data-view="stats">↗<span>STATS</span></button></nav>
+
+  <div class="mission-overlay" id="missionOverlay" aria-hidden="true">
+    <div class="overlay-grid"></div><div class="overlay-flare"></div>
+    <div class="mission-panel">
+      <p class="system-label">NEKORIN SYSTEM</p>
+      <div class="mission-symbol">◆</div>
+      <h2>MISSION COMPLETE</h2>
+      <p id="missionSummary">Focus mission cleared.</p>
+      <strong id="missionReward">+25 XP</strong>
+      <button id="continueMission" type="button">CLAIM REWARD</button>
+    </div>
+  </div>
+
   <div class="toast" id="toast"></div>
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
