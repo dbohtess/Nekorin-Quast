@@ -23,6 +23,28 @@
     observer.observe(levelEl, { childList: true, characterData: true, subtree: true });
   }
 
+  // V3 focus reward safety fix: verify that CLAIM REWARD actually adds
+  // the completed timer minutes as XP, without double-awarding when the
+  // original app.js handler already worked.
+  const claimButton = document.getElementById('continueMission');
+  if (claimButton) {
+    claimButton.addEventListener('click', () => {
+      const xpBefore = Number(state?.xp || 0);
+      const pendingBefore = Number(rewardPending || 0);
+
+      if (pendingBefore <= 0) return;
+
+      queueMicrotask(() => {
+        const xpAfter = Number(state?.xp || 0);
+        if (xpAfter >= xpBefore + pendingBefore) return;
+
+        addXp(pendingBefore);
+        rewardPending = 0;
+        toast(`+${pendingBefore} XP · Focus mission cleared`);
+      });
+    }, true);
+  }
+
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (!sessionStorage.getItem('nekorin-reloaded')) {
